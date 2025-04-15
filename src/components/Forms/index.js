@@ -4,7 +4,7 @@ import FormsText from '../FormsText'
 import ListaSuspensa from '../ListaSuspensa'
 import './Forms.css'
 
-const Forms = () => {
+const Forms = (props) => {
 
     const times = [
         'Programacao',
@@ -24,7 +24,12 @@ const Forms = () => {
     
     const aoSalvar = (evento) => {
         evento.preventDefault() //previne o comportamento padrao da pagina, no caso aqui esta sendo usado para a pagina nao atualizar quando clicar no botao
-        console.log('form foi submetido', nome, cargo, imagem, time)
+        props.aoColaboradorCadastrado({
+            nome,
+            cargo,
+            imagem,
+            time
+        })
     }
 
     return (
